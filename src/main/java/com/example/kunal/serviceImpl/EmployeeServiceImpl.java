@@ -54,7 +54,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public void deleteEmployee(Integer id) {
+		Employee existData=employeeRepository.findById(id).orElseThrow(()->new EmployeeNotFoundException("Employee not exist with id"));
+		if(existData!=null) {
 		employeeRepository.deleteById(id);
+		}
 		
 	}
 
