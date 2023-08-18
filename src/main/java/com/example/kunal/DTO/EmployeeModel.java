@@ -2,6 +2,8 @@ package com.example.kunal.DTO;
 
 import java.io.Serializable;
 
+import org.hibernate.validator.constraints.Range;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -13,11 +15,11 @@ public class EmployeeModel implements Serializable {
 	private Integer eid;
 	
 	@NotEmpty(message="First Name cann't be empty or null")
-	@Size(min=5 , message="First Name length atleast 4 character")
+	@Size(min=5 , message="First Name length atleast 5 character")
 	private String firstName;
 	
 	@NotEmpty(message="First Name cann't be empty or null")
-	@Size(min=5 , message="Last Name length atleast 4 character")
+	@Size(min=5 , message="Last Name length atleast 5 character")
 	private String lastName;
 	
 	private Integer age;
@@ -28,7 +30,7 @@ public class EmployeeModel implements Serializable {
 	private String address;
 	
 	
-//	@Size(min=10,max=10 , message="Mobile Number length should be 10")
+	//@Range(min=10,max=10, message="Mobile Number length should be 10")
 	private Long mobileNumber;
 
 	/**
