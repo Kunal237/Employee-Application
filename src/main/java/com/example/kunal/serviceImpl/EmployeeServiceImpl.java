@@ -21,7 +21,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	
 	@Override
 	public EmployeeModel getEmployeeById(Integer id) {
-		Employee existData=employeeRepository.findById(id).orElseThrow(()->new EmployeeNotFoundException("Employee not exist with id"));
+		Employee existData=employeeRepository.findById(id).orElseThrow(()->new EmployeeNotFoundException("Employee not exist with id"+id));
 		EmployeeModel employeeModel=EmployeeMapper.MAPPER.getEmployeeModel(existData);
 		return employeeModel;
 	}
@@ -44,7 +44,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public EmployeeModel updateEmployee(Integer id, EmployeeModel employee) {
-		Employee existData=employeeRepository.findById(id).orElseThrow(()->new EmployeeNotFoundException("Employee not exist with id"));
+		Employee existData=employeeRepository.findById(id).orElseThrow(()->new EmployeeNotFoundException("Employee not exist with id"+id));
 		employee.setEid(existData.getEid());
 		existData=EmployeeMapper.MAPPER.getEmployeeEntity(employee);
 		existData=employeeRepository.saveAndFlush(existData);
@@ -54,7 +54,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public void deleteEmployee(Integer id) {
-		Employee existData=employeeRepository.findById(id).orElseThrow(()->new EmployeeNotFoundException("Employee not exist with id"));
+		Employee existData=employeeRepository.findById(id).orElseThrow(()->new EmployeeNotFoundException("Employee not exist with id"+id));
 		if(existData!=null) {
 		employeeRepository.deleteById(id);
 		}

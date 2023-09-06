@@ -2,8 +2,6 @@ package com.example.kunal.DTO;
 
 import java.io.Serializable;
 
-import org.hibernate.validator.constraints.Range;
-
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -30,8 +28,22 @@ public class EmployeeModel implements Serializable {
 	private String address;
 	
 	
-	//@Range(min=10,max=10, message="Mobile Number length should be 10")
-	private Long mobileNumber;
+	@Size(min=10,max=10, message="Mobile Number length should be 10")
+	private String mobileNumber;
+
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+
+	@Override
+	public String toString() {
+		return "EmployeeModel [eid=" + eid + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age
+				+ ", emailId=" + emailId + ", address=" + address + ", mobileNumber=" + mobileNumber + "]";
+	}
 
 	/**
 	 * @return the eid
@@ -120,25 +132,8 @@ public class EmployeeModel implements Serializable {
 		this.address = address;
 	}
 
-	/**
-	 * @return the mobileNumber
-	 */
-	public Long getMobileNumber() {
-		return mobileNumber;
-	}
 
-	/**
-	 * @param mobileNumber the mobileNumber to set
-	 */
-	public void setMobileNumber(Long mobileNumber) {
-		this.mobileNumber = mobileNumber;
-	}
 
-	@Override
-	public String toString() {
-		return "EmployeeModel [eid=" + eid + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age
-				+ ", emailId=" + emailId + ", address=" + address + ", mobileNumber=" + mobileNumber + "]";
-	}
 
 
 	

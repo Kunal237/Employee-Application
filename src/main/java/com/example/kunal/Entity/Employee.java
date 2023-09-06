@@ -32,7 +32,7 @@ public class Employee implements Serializable {
 	private String address;
 	
 	@Column(name="MOBILE_NUMBER")
-	private Long mobileNumber;
+	private String mobileNumber;
 
 	/**
 	 * @return the firstName
@@ -78,17 +78,13 @@ public class Employee implements Serializable {
 		this.address = address;
 	}
 
-	/**
-	 * @return the mobileNumber
-	 */
-	public Long getMobileNumber() {
+
+
+	public String getMobileNumber() {
 		return mobileNumber;
 	}
 
-	/**
-	 * @param mobileNumber the mobileNumber to set
-	 */
-	public void setMobileNumber(Long mobileNumber) {
+	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 
@@ -139,6 +135,7 @@ public class Employee implements Serializable {
 		return "Employee [eid=" + eid + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age
 				+ ", emailId=" + emailId + ", address=" + address + ", mobileNumber=" + mobileNumber + "]";
 	}
+
 
 
 
